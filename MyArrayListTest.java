@@ -1,5 +1,3 @@
-/// Commit Testing gab
-
 /// <summary>
 /// My Arraylist implementation
 /// </summary>
@@ -16,8 +14,10 @@ public class MyArrayListTest<T>
     /// </summary>
     private int size;
     private int lastIndex;
+
+    //Constructor for MyArrayListTest
     // Setup initial array with size 4
-    public MyArrayList(){
+    MyArrayListTest(){
         this.backingArray = new T[4]();
         this.size = 4;
         this.lastIndex = 0;
@@ -25,8 +25,13 @@ public class MyArrayListTest<T>
     
     // Method to get element from backing array at index i
     public T GetElementAtIndex(int index){
-        if(index >= size) throw new IndexOutOfBoundsException();
-        throw new NotImplementedException();
+        if(index >= size){
+            throw new IndexOutOfBoundsException();
+        } else{
+            //show element at index 
+            //return T 
+        }
+        //throw new NotImplementedException();
     }
 
     public void Add(T newElement)
@@ -42,7 +47,8 @@ public class MyArrayListTest<T>
 
     public boolean Find(T element2Find)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        return true; //Change to appropriate boolean 
     }
 
     public int GetSize(){
@@ -50,6 +56,7 @@ public class MyArrayListTest<T>
     }
 
     public int GetCapacity(){
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        return 1; //Change to return capacity
     }
 }
