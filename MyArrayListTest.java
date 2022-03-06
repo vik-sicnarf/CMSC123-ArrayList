@@ -4,7 +4,7 @@
 /// My Arraylist implementation
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class MyArrayList<T>
+public class MyArrayListTest<T>
 {
     /// <summary>
     /// Contains the elements of your list
@@ -25,7 +25,7 @@ public class MyArrayList<T>
     
     // Method to get element from backing array at index i
     public T GetElementAtIndex(int index){
-        if(index >= size) throw new IndexOutOfRangeException();
+        if(index >= size) throw new IndexOutOfBoundsException();
         throw new NotImplementedException();
     }
 
