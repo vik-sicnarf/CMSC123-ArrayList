@@ -17,21 +17,21 @@ public class MyArrayListTest<T>
 
     //Constructor for MyArrayListTest
     // Setup initial array with size 4
-    MyArrayListTest(){
-        this.backingArray = new T[4]();
+    public MyArrayListTest(){
+        //this.backingArray = new T[4](); // To be deleted if the declaration below works
         this.size = 4;
         this.lastIndex = 0;
+        this.backingArray = (T[]) backingArray[4]; //Declaring initial size of array, Not sure if this is correct
     }
-    
+
     // Method to get element from backing array at index i
     public T GetElementAtIndex(int index){
         if(index >= size){
             throw new IndexOutOfBoundsException();
         } else{
-            //show element at index 
-            //return T 
+            return backingArray[index];
         }
-        //throw new NotImplementedException();
+        //throw new NotImplementedException(); //From the template
     }
 
     public void Add(T newElement)
@@ -39,6 +39,8 @@ public class MyArrayListTest<T>
         if(lastIndex==size) {
             // resize your arraylist, copy over elements to new backing array 
             this.size = 2*this.size;
+            ///Declare new array of with the new size 
+            ///Copy the elements of old array to the new array
         }
         // add elements to backing array
         System.out.println("Adding Element");
@@ -47,8 +49,8 @@ public class MyArrayListTest<T>
 
     public boolean Find(T element2Find)
     {
-        //throw new NotImplementedException();
-        return true; //Change to appropriate boolean 
+        //throw new NotImplementedException(); //From the template 
+        return true; //Change to True if the element is found and False if not (Not sure)
     }
 
     public int GetSize(){
@@ -57,6 +59,6 @@ public class MyArrayListTest<T>
 
     public int GetCapacity(){
         //throw new NotImplementedException();
-        return 1; //Change to return capacity
+        return 1; //Change to return actual capacity
     }
 }
