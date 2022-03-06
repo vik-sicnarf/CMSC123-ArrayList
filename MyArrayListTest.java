@@ -36,11 +36,11 @@ public class MyArrayListTest<T>
             this.size = 2*this.size;
         }
         // add elements to backing array
-        Console.WriteLine("Adding element");
+        System.out.println("Adding Element");
         lastIndex++;
     }
 
-    public bool Find(T element2Find)
+    public boolean Find(T element2Find)
     {
         throw new NotImplementedException();
     }
