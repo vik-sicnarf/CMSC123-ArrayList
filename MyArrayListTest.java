@@ -7,7 +7,7 @@ public class MyArrayListTest<T>
     /// <summary>
     /// Contains the elements of your list
     /// </summary>
-    private T[] backingArray;
+    private T[] backingArray; 
 
     /// <summary>
     /// size of my arraylist
@@ -21,7 +21,7 @@ public class MyArrayListTest<T>
         //this.backingArray = new T[4](); // To be deleted if the declaration below works
         this.size = 4;
         this.lastIndex = 0;
-        this.backingArray = (T[]) backingArray[4]; //Declaring initial size of array, Not sure if this is correct
+        this.backingArray = (T[]) new Object[4]; //Declaring initial size of array, Not sure if this is correct
     }
 
     // Method to get element from backing array at index i
@@ -41,10 +41,14 @@ public class MyArrayListTest<T>
             this.size = 2*this.size;
             ///Declare new array of with the new size 
             ///Copy the elements of old array to the new array
+        }else{
+            System.out.println("Adding Element");
+            backingArray[lastIndex] = newElement; 
+            lastIndex++;
         }
         // add elements to backing array
-        System.out.println("Adding Element");
-        lastIndex++;
+        
+        
     }
 
     public boolean Find(T element2Find)
@@ -61,4 +65,5 @@ public class MyArrayListTest<T>
         //throw new NotImplementedException();
         return 1; //Change to return actual capacity
     }
+  
 }
