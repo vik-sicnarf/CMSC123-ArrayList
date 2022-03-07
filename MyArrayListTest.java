@@ -63,20 +63,20 @@ public class MyArrayListTest<T>
         }else{
             //System.out.println("Adding Element");
             backingArray[lastIndex] = newElement; //adds the element to be added 
-            lastIndex++;
-           
-            
-        }
-        
-        
-        
+            lastIndex++;           
+        }       
     }
 
     public boolean Find(T element2Find)
-    {
-        
-        //throw new NotImplementedException(); //From the template 
-        return true; //Change to True if the element is found and False if not (Not sure)
+    { 
+        //throw new NotImplementedException(); //From the template
+        for (int i=0; i<this.size; i++){
+            if (backingArray[i] == element2Find){
+                System.out.println("It is found"); //For testing the argument only
+                return true; //return true if element is found
+            }
+        }
+        return false; //return false by default
     }
 
     public int GetSize(){
@@ -86,7 +86,14 @@ public class MyArrayListTest<T>
 
     public int GetCapacity(){
         //throw new NotImplementedException();
-        return 1; //Change to return actual capacity
+        int count = 0;
+        for (int i=0; i<this.size; i++){
+            if (backingArray[i] != null){
+                ++count; //count every non-empty element of the list
+            }
+        } 
+        System.out.println("There are currently " + count + " elements in the list "); //For testing the argument only
+        return count;  
     }
 
     ///METHOD FOR PRINTING OUT THE CONTENTS OF THE LIST for checking if stuff works. can be removed when finalizing. 
@@ -105,11 +112,17 @@ public class MyArrayListTest<T>
         testlist.Add("Element3"); 
         testlist.Add("Element4"); 
         testlist.Add("Element5"); 
+        testlist.Add("Element6"); 
+        testlist.Add("Element7"); 
+        testlist.Add("Element8"); 
+        testlist.Add("Element9"); 
+        testlist.Add("Element10"); 
         
-
+        
         testlist.GetElementAtIndex(0); 
-
         testlist.PrintMyArrayList();
+        testlist.GetCapacity();
+        testlist.Find("Element6");
         testlist.GetSize(); 
         
         
