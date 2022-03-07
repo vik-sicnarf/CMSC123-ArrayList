@@ -29,7 +29,8 @@ public class MyArrayListTest<T>
     public T GetElementAtIndex(int index){
         if(index >= size){
             System.out.println("Index is greater than size");
-            return null; //not sure if return null is correct. Does not return anything if the index is greater than list size
+            throw new ArrayIndexOutOfBoundsException("Index is out of bounds"); ///Instruction says to throw exception if out of bounds
+            
         } else{
             System.out.println("The element at index " + index + " is " + backingArray[index]);
             return backingArray[index];
@@ -118,8 +119,8 @@ public class MyArrayListTest<T>
         testlist.Add("Element9"); 
         testlist.Add("Element10"); 
         
-        
-        testlist.GetElementAtIndex(0); 
+        //testlist.GetElementAtIndex(20); for testing out of bounds exception 
+        testlist.GetElementAtIndex(11); 
         testlist.PrintMyArrayList();
         testlist.GetCapacity();
         testlist.Find("Element6");
