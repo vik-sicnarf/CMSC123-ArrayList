@@ -107,23 +107,23 @@ public class MyArrayListTest<T>
 
 
     public static void main(String[] args){  //THIS IS MAINLY FOR TESTING IF THE CODE WORKS 
-        MyArrayListTest<String> testlist = new MyArrayListTest<String>(); 
-        testlist.Add("Element1"); 
-        testlist.Add("Element2"); 
-        testlist.Add("Element3"); 
-        testlist.Add("Element4"); 
-        testlist.Add("Element5"); 
-        testlist.Add("Element6"); 
-        testlist.Add("Element7"); 
-        testlist.Add("Element8"); 
-        testlist.Add("Element9"); 
-        testlist.Add("Element10"); 
+        MyArrayListTest<Integer> testlist = new MyArrayListTest<Integer>(); 
+        testlist.Add(20); 
+        testlist.Add(21); 
+        testlist.Add(22); 
+        testlist.Add(23); 
+        testlist.Add(24); 
+        testlist.Add(25); 
+        testlist.Add(26); 
+        testlist.Add(27); 
+        testlist.Add(28); 
+        testlist.Add(29); 
         
         //testlist.GetElementAtIndex(20); for testing out of bounds exception 
         testlist.GetElementAtIndex(11); 
         testlist.PrintMyArrayList();
         testlist.GetCapacity();
-        testlist.Find("Element6");
+        testlist.Find(21);
         testlist.GetSize(); 
         
         
