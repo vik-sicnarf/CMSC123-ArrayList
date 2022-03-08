@@ -1,14 +1,12 @@
-/// <summary>
-/// My Arraylist implementation
-/// </summary>
-/// <typeparam name="T"></typeparam>
+
+///My Arraylist implementation
 public class MyArrayListTest<T>
 {
     /// <summary>
     /// Contains the elements of your list
     /// </summary>
     private T[] backingArray; 
-    private T[] tempbackingArray; //This is for adding elements that exceed the original size of the array 
+    private T[] tempbackingArray; //Array to store old elements of the list when resizing
 
     /// <summary>
     /// size of my arraylist
@@ -17,60 +15,55 @@ public class MyArrayListTest<T>
     private int lastIndex;
 
     //Constructor for MyArrayListTest
-    // Setup initial array with size 4
     public MyArrayListTest(){
-        //this.backingArray = new T[4](); // To be deleted if the declaration below works
         this.size = 4;
         this.lastIndex = 0;
-        this.backingArray = (T[]) new Object[4]; //Declaring initial size of array, Not sure if this is correct but for now it is working
+        this.backingArray = (T[]) new Object[4]; //Setup initial array with size 4
     }
 
     // Method to get element from backing array at index i
     public T GetElementAtIndex(int index){
         if(index >= size){
             System.out.println("Index is greater than size");
-            throw new ArrayIndexOutOfBoundsException("Index is out of bounds"); ///Instruction says to throw exception if out of bounds
+            throw new ArrayIndexOutOfBoundsException("Index is out of bounds"); ///Throws exception if out of bounds
             
         } else{
             System.out.println("The element at index " + index + " is " + backingArray[index]);
             return backingArray[index];
         }
-        //throw new NotImplementedException(); //From the template
     }
 
+    //Method to add elements to the arraylist
     public void Add(T newElement)
     {
         if(lastIndex==size) {
-    
-            // resize your arraylist, copy over elements to new backing array 
+            ///Resizes arraylist
             this.tempbackingArray = (T[]) new Object[this.size]; //Declares a temporary backing array to put old values in 
 
             for(int i=0; i<this.size;i++){   ///Copies the elements from backing array to temporary backing array
                 tempbackingArray[i] = backingArray[i]; 
             }
 
-            this.size = 2*this.size; //Sets the new size of list 
-            this.backingArray = (T[]) new Object[this.size]; ///Declares the new list 
+            this.size = 2*this.size; //Sets the new size of list as twice the current one 
+            this.backingArray = (T[]) new Object[this.size]; ///Declares the resized array
 
             ///Adds the old elements to the new list 
-            for(int i=0; i<this.size/2; i++){ ///divided by two because previously the old list is half of new list 
+            for(int i=0; i<this.size/2; i++){ ///Divide by two because previously the old list is half of new list 
                 backingArray[i] = tempbackingArray[i]; 
             }
 
             backingArray[lastIndex] = newElement;  // adds the element to be added 
             lastIndex++; 
-            ///Declare new array of with the new size 
-            ///Copy the elements of old array to the new array
+
         }else{
-            //System.out.println("Adding Element");
             backingArray[lastIndex] = newElement; //adds the element to be added 
             lastIndex++;           
         }       
     }
 
+    //Method to Find an elmenent inside the arraylist
     public boolean Find(T element2Find)
-    { 
-        //throw new NotImplementedException(); //From the template
+    {
         for (int i=0; i<this.size; i++){
             if (backingArray[i] == element2Find){
                 System.out.println("It is found"); //For testing the argument only
@@ -80,13 +73,14 @@ public class MyArrayListTest<T>
         return false; //return false by default
     }
 
+    //Method to return the current size of the array list
     public int GetSize(){
-        System.out.println("The size of the list is: " + this.size); ///To check if the output is correct 
+        System.out.println("The size of the list is: " + this.size); ///To display the size 
         return this.size;
     }
 
+    //Method to return the number of elements in the array list
     public int GetCapacity(){
-        //throw new NotImplementedException();
         int count = 0;
         for (int i=0; i<this.size; i++){
             if (backingArray[i] != null){
