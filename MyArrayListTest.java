@@ -1,4 +1,4 @@
-
+ 
 ///My Arraylist implementation
 public class MyArrayListTest<T>
 {
@@ -51,14 +51,15 @@ public class MyArrayListTest<T>
             for(int i=0; i<this.size/2; i++){ ///Divide by two because previously the old list is half of new list 
                 backingArray[i] = tempbackingArray[i]; 
             }
-
+            
             backingArray[lastIndex] = newElement;  // adds the element to be added 
             lastIndex++; 
 
         }else{
             backingArray[lastIndex] = newElement; //adds the element to be added 
             lastIndex++;           
-        }       
+        }      
+        
     }
 
     //Method to Find an elmenent inside the arraylist
