@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 
 ///My Arraylist implementation
 public class MyArrayListTest<T>
@@ -39,17 +39,18 @@ public class MyArrayListTest<T>
     {
         if(lastIndex==size) {
             ///Resizes arraylist
-
-            //Copies elements from backingarray to tempbackingarray
-            this.tempbackingArray = Arrays.copyOf(backingArray, this.size);
-
-            this.size = 2*this.size; //Sets the new size of list as twice the current one 
-            
-            ///Declares the resized array and copies elements from old array to new array 
-            this.backingArray = Arrays.copyOf(tempbackingArray, this.size); //copies elements from old array to new array 
-
-            backingArray[lastIndex] = newElement;  // adds the element to be added 
-            lastIndex++; 
+            this.tempbackingArray = (T[]) new Object[this.size]; //Declares a temporary backing array to put old values in
+            for(int i=0; i<this.size;i++){ ///Copies the elements from backing array to temporary backing array
+                tempbackingArray[i] = backingArray[i];
+            }
+            this.size = 2*this.size; //Sets the new size of list as twice the current one
+            this.backingArray = (T[]) new Object[this.size]; ///Declares the resized array
+            ///Adds the old elements to the new list
+            for(int i=0; i<this.size/2; i++){ ///Divide by two because previously the old list is half of new list
+                backingArray[i] = tempbackingArray[i];
+            }
+            backingArray[lastIndex] = newElement; // adds the element to be added
+            lastIndex++;
 
         }else{
             backingArray[lastIndex] = newElement; //adds the element to be added 
