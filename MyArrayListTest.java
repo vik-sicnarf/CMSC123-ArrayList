@@ -56,12 +56,6 @@ public class MyArrayListTest<T>
             lastIndex++;           
         }    
         
-        for(int i=0; i<this.size; i++){
-            if(backingArray[i] == null) {
-                backingArray[i] = (T) "No Element";
-            }
-        }
-        
     }
 
     //Method to Find an elmenent inside the arraylist
@@ -86,7 +80,7 @@ public class MyArrayListTest<T>
     public int GetCapacity(){
         int count = 0;
         for (int i=0; i<this.size; i++){
-            if (backingArray[i] != "No Element"){
+            if (backingArray[i] != null){
                 ++count; //count every non-empty element of the list
             }
         } 
@@ -110,6 +104,7 @@ public class MyArrayListTest<T>
         testlist.Add(22);
         testlist.Add(23);
         testlist.Add(24);
+        testlist.Add(25);
  
         
         //testlist.GetElementAtIndex(20); for testing out of bounds exception 
