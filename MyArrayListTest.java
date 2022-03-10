@@ -54,7 +54,13 @@ public class MyArrayListTest<T>
         }else{
             backingArray[lastIndex] = newElement; //adds the element to be added 
             lastIndex++;           
-        }      
+        }    
+        
+        for(int i=0; i<this.size; i++){
+            if(backingArray[i] == null) {
+                backingArray[i] = (T) "No Element";
+            }
+        }
         
     }
 
@@ -80,7 +86,7 @@ public class MyArrayListTest<T>
     public int GetCapacity(){
         int count = 0;
         for (int i=0; i<this.size; i++){
-            if (backingArray[i] != null){
+            if (backingArray[i] != "No Element"){
                 ++count; //count every non-empty element of the list
             }
         } 
@@ -101,13 +107,16 @@ public class MyArrayListTest<T>
         MyArrayListTest<Integer> testlist = new MyArrayListTest<Integer>(); 
         testlist.Add(20); 
         testlist.Add(21); 
+        testlist.Add(22);
+        testlist.Add(23);
+        testlist.Add(24);
  
         
         //testlist.GetElementAtIndex(20); for testing out of bounds exception 
         testlist.GetElementAtIndex(2); 
         testlist.PrintMyArrayList();
         testlist.GetCapacity();
-        testlist.Find(21);
+        testlist.Find(24);
         testlist.GetSize(); 
         
         
