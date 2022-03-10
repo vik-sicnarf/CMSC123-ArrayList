@@ -29,7 +29,7 @@ public class MyArrayListTest<T>
             throw new ArrayIndexOutOfBoundsException("Index is out of bounds"); ///Throws exception if out of bounds
             
         } else{
-            System.out.println("The element at index " + index + " is " + backingArray[index]);
+            //System.out.println("The element at index " + index + " is " + backingArray[index]); //For testing
             return backingArray[index];
         }
     }
@@ -63,16 +63,17 @@ public class MyArrayListTest<T>
     {
         for (int i=0; i<this.size; i++){
             if (backingArray[i] == element2Find){
-                System.out.println("It is found"); //For testing the argument only
+                //System.out.println("It is found"); //For testing the argument only
                 return true; //return true if element is found
             }
         }
+        //System.out.println("Element is not found"); //For testing the argument only
         return false; //return false by default
     }
 
     //Method to return the current size of the array list
     public int GetSize(){
-        System.out.println("The size of the list is: " + this.size); ///To display the size 
+        //System.out.println("The size of the list is: " + this.size); ///To display the size for testing
         return this.size;
     }
 
@@ -84,19 +85,23 @@ public class MyArrayListTest<T>
                 ++count; //count every non-empty element of the list
             }
         } 
-        System.out.println("There are currently " + count + " elements in the list "); //For testing the argument only
+        //System.out.println("There are currently " + count + " elements in the list "); //For testing the argument only
         return count;  
     }
 
-    ///METHOD FOR PRINTING OUT THE CONTENTS OF THE LIST for checking if stuff works. can be removed when finalizing. 
+    ///Method for printing out the contents of the list to see if it works
+    /*
     public void PrintMyArrayList(){
         System.out.println("These are the contents of the list: ");
         for (int i=0; i<this.size; i++){
             System.out.println(backingArray[i]);
         }
     }
+    */
 
 
+    
+    /*
     public static void main(String[] args){  //THIS IS MAINLY FOR TESTING IF THE CODE WORKS 
         MyArrayListTest<Integer> testlist = new MyArrayListTest<Integer>(); 
         testlist.Add(20); 
@@ -111,10 +116,10 @@ public class MyArrayListTest<T>
         testlist.GetElementAtIndex(2); 
         testlist.PrintMyArrayList();
         testlist.GetCapacity();
-        testlist.Find(24);
+        testlist.Find(25);
         testlist.GetSize(); 
         
         
         
-    }
+    }*/
 }
