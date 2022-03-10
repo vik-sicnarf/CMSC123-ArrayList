@@ -58,7 +58,7 @@ public class MyArrayList<T>
         
     }
 
-    //Method to Find an elmenent inside the arraylist
+    //Method to Find an element inside the arraylist
     public boolean Find(T element2Find)
     {
         for (int i=0; i<this.size; i++){

@@ -56,6 +56,12 @@ public class MyArrayListTest<T>
             backingArray[lastIndex] = newElement; //adds the element to be added 
             lastIndex++;           
         }    
+
+        // for(int i=0; i<this.size; i++){
+        //     if(backingArray[i] == null) {
+        //         backingArray[i] = (T) "No Element";
+        //     }
+        // }
         
     }
 
